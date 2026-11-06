@@ -13,15 +13,10 @@
     <script src="js/main.js" defer></script>
   </head>
   <body class="antialiased">
-    <a
-      href="#main-content"
-      class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:p-3"
-      >Skip to main content</a
-    >
-
+    <!-- Site header: logo and navigation links. -->
     <header class="absolute inset-x-0 top-0 z-30 text-white" id="site-header">
       <nav
-        class="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-5 md:px-10"
+        class="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-10"
         aria-label="Main navigation"
       >
         <a
@@ -30,45 +25,27 @@
           aria-label="Tesla Model 3 home"
           >TESLA</a
         >
-        <div class="hidden items-center gap-7 text-sm font-semibold lg:flex">
+        <div class="flex items-center gap-7 text-sm font-semibold">
           <a class="focus-ring hover:underline" href="#meet">Meet Model 3</a>
           <a class="focus-ring hover:underline" href="#trims">Explore Models</a>
           <a class="focus-ring hover:underline" href="#features">Features</a>
           <a class="focus-ring hover:underline" href="#charging">Charging</a>
           <a class="focus-ring hover:underline" href="#specs">Specs</a>
         </div>
-        <button
-          id="menu-button"
-          class="focus-ring rounded bg-white/90 px-4 py-2 text-sm font-semibold text-[#171a20] lg:hidden"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          Menu
-        </button>
         <a
-          class="focus-ring hidden text-sm font-semibold hover:underline lg:block"
+          class="focus-ring text-sm font-semibold hover:underline"
           href="#specs"
           >Specs</a
         >
       </nav>
-      <div
-        id="mobile-menu"
-        class="hidden bg-white px-5 py-5 text-[#171a20] shadow-lg lg:hidden"
-      >
-        <div class="flex flex-col gap-4 font-semibold">
-          <a class="focus-ring" href="#meet">Meet Model 3</a
-          ><a class="focus-ring" href="#trims">Explore Models</a
-          ><a class="focus-ring" href="#features">Features</a
-          ><a class="focus-ring" href="#charging">Charging</a
-          ><a class="focus-ring" href="#specs">Specs</a>
-        </div>
-      </div>
     </header>
 
+    <!-- Main contains the page's primary content, divided into sections. -->
     <main id="main-content">
+      <!-- Hero: large image, headline, and slide controls. -->
       <section
         id="top"
-        class="relative h-[680px] min-h-[560px] overflow-hidden md:h-screen"
+        class="relative h-screen min-h-[560px] overflow-hidden"
         aria-label="Model 3 hero"
       >
         <img
@@ -79,19 +56,19 @@
         />
         <div class="hero-shade absolute inset-0"></div>
         <div
-          class="relative z-10 flex h-full flex-col items-center justify-between px-5 pb-8 pt-24 text-center text-white md:pt-20"
+          class="relative z-10 flex h-full flex-col items-center justify-between px-5 pb-8 pt-20 text-center text-white"
         >
           <div>
             <h1
               id="hero-title"
-              class="text-4xl font-semibold tracking-tight md:text-6xl"
+              class="text-6xl font-semibold tracking-tight"
             >
               Model 3 Premium
             </h1>
-            <p id="hero-subtitle" class="mt-3 text-lg md:text-xl">
+            <p id="hero-subtitle" class="mt-3 text-xl">
               Sport Sedan
             </p>
-            <div class="mt-7 flex w-full max-w-md flex-col gap-3 sm:flex-row">
+            <div class="mt-7 flex w-full max-w-md gap-3">
               <a
                 id="hero-order"
                 class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded bg-[#3e6ae1] px-6 text-sm font-semibold hover:bg-[#345ac2]"
@@ -105,7 +82,7 @@
               >
             </div>
           </div>
-          <div class="flex w-full items-center justify-between md:px-7">
+          <div class="flex w-full items-center justify-between px-7">
             <button
               id="hero-prev"
               class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow"
@@ -130,9 +107,10 @@
         </div>
       </section>
 
-      <section id="meet" class="px-5 py-20 md:py-28">
+      <!-- Meet Model 3: an introduction with feature tabs. -->
+      <section id="meet" class="px-5 py-28">
         <div class="mx-auto max-w-6xl text-center">
-          <h2 class="text-4xl font-semibold tracking-tight md:text-5xl">
+          <h2 class="text-5xl font-semibold tracking-tight">
             Meet Model 3
           </h2>
           <p class="mt-4 text-xl font-medium">Sport Sedan</p>
@@ -140,7 +118,7 @@
             Explore the features that are available with every Model 3.
           </p>
           <div
-            class="mt-10 flex flex-wrap justify-center gap-2"
+            class="mt-10 flex justify-center gap-2"
             role="tablist"
             aria-label="Model 3 features"
           >
@@ -164,15 +142,15 @@
           <div
             id="feature-panel"
             role="tabpanel"
-            class="mt-8 overflow-hidden rounded-lg bg-[#f4f4f4] text-left md:grid md:grid-cols-2"
+            class="mt-8 grid grid-cols-2 overflow-hidden rounded-lg bg-[#f4f4f4] text-left"
           >
             <img
               id="feature-image"
               src="assets/images/meet-convenience.avif"
               alt="Model 3 feature illustration"
-              class="h-72 w-full object-cover md:h-[440px]"
+              class="h-[440px] w-full object-cover"
             />
-            <div class="flex flex-col justify-center p-8 md:p-14">
+            <div class="flex flex-col justify-center p-14">
               <h3 id="feature-title" class="text-3xl font-semibold">
                 Everyday Convenience
               </h3>
@@ -191,10 +169,11 @@
         </div>
       </section>
 
-      <section id="trims" class="bg-[#f4f4f4] px-5 py-20 md:py-28">
+      <!-- Explore Models: choose a trim to update its image and stats. -->
+      <section id="trims" class="bg-[#f4f4f4] px-5 py-28">
         <div class="mx-auto max-w-6xl">
           <h2
-            class="text-center text-4xl font-semibold tracking-tight md:text-5xl"
+            class="text-center text-5xl font-semibold tracking-tight"
           >
             Explore Model 3
           </h2>
@@ -229,7 +208,7 @@
             </button>
           </div>
           <div
-            class="mt-8 overflow-hidden rounded-lg bg-white md:grid md:grid-cols-[1.3fr_1fr]"
+            class="mt-8 grid grid-cols-[1.3fr_1fr] overflow-hidden rounded-lg bg-white"
             role="tabpanel"
             id="trim-panel"
           >
@@ -237,9 +216,9 @@
               id="trim-image"
               src="assets/images/trim-model-3.avif"
               alt="Model 3 exterior"
-              class="h-72 w-full object-cover md:h-[460px]"
+              class="h-[460px] w-full object-cover"
             />
-            <div class="flex flex-col justify-center p-8 md:p-12">
+            <div class="flex flex-col justify-center p-12">
               <h3 id="trim-title" class="text-3xl font-semibold">Model 3</h3>
               <div
                 class="mt-8 grid grid-cols-3 gap-3 border-y border-gray-200 py-6 text-center"
@@ -274,9 +253,10 @@
         </div>
       </section>
 
-      <section id="features" class="px-5 py-20 md:py-28">
+      <!-- Features: supporting details about the car. -->
+      <section id="features" class="px-5 py-28">
         <div class="mx-auto max-w-6xl">
-          <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+          <div class="grid grid-cols-2 items-center gap-16">
             <div>
               <p
                 class="text-sm font-semibold uppercase tracking-widest text-gray-500"
@@ -284,7 +264,7 @@
                 Interior
               </p>
               <h2
-                class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl"
+                class="mt-3 text-5xl font-semibold tracking-tight"
               >
                 More Than the Basics
               </h2>
@@ -303,25 +283,25 @@
             <img
               src="assets/images/meet-convenience.avif"
               alt="Model 3 cabin feature illustration"
-              class="h-80 w-full rounded-lg bg-[#f4f4f4] object-cover md:h-[460px]"
+              class="h-[460px] w-full rounded-lg bg-[#f4f4f4] object-cover"
               loading="lazy"
             />
           </div>
-          <div class="mt-24 grid items-center gap-10 md:grid-cols-2 md:gap-16">
+          <div class="mt-24 grid grid-cols-2 items-center gap-16">
             <img
               src="assets/images/meet-safety.avif"
               alt="Model 3 safety feature illustration"
-              class="h-80 w-full rounded-lg bg-[#f4f4f4] object-cover md:order-1 md:h-[460px]"
+              class="h-[460px] w-full rounded-lg bg-[#f4f4f4] object-cover"
               loading="lazy"
             />
-            <div class="md:order-2">
+            <div>
               <p
                 class="text-sm font-semibold uppercase tracking-widest text-gray-500"
               >
                 Safety
               </p>
               <h2
-                class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl"
+                class="mt-3 text-5xl font-semibold tracking-tight"
               >
                 Engineered for Your Safety
               </h2>
@@ -344,12 +324,13 @@
         </div>
       </section>
 
+      <!-- Charging: range and charging information. -->
       <section
         id="charging"
-        class="bg-[#171a20] px-5 py-20 text-white md:py-28"
+        class="bg-[#171a20] px-5 py-28 text-white"
       >
         <div
-          class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center"
+          class="mx-auto grid max-w-6xl grid-cols-2 items-center gap-10"
         >
           <div>
             <p
@@ -357,7 +338,7 @@
             >
               Charging
             </p>
-            <h2 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 class="mt-3 text-5xl font-semibold tracking-tight">
               Built for Distance
             </h2>
             <p class="mt-6 max-w-lg leading-7 text-gray-300">
@@ -372,13 +353,13 @@
           </div>
           <div class="grid grid-cols-2 gap-4 text-center">
             <div class="rounded-lg bg-white/10 p-8">
-              <strong class="block text-4xl md:text-5xl">321</strong
+              <strong class="block text-5xl">321</strong
               ><span class="mt-2 block text-sm text-gray-300"
                 >mi range (EPA est.)</span
               >
             </div>
             <div class="rounded-lg bg-white/10 p-8">
-              <strong class="block text-4xl md:text-5xl">170</strong
+              <strong class="block text-5xl">170</strong
               ><span class="mt-2 block text-sm text-gray-300"
                 >miles added in 15 minutes</span
               >
@@ -387,9 +368,10 @@
         </div>
       </section>
 
-      <section id="specs" class="bg-[#171a20] px-5 py-20 text-white md:py-28">
+      <!-- Specs: a description list pairs each specification with its value. -->
+      <section id="specs" class="bg-[#171a20] px-5 py-28 text-white">
         <div
-          class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center md:gap-16"
+          class="mx-auto grid max-w-6xl grid-cols-2 items-center gap-16"
         >
           <img
             src="assets/images/specs-model-3.avif"
@@ -398,7 +380,7 @@
             loading="lazy"
           />
           <div>
-            <h2 class="text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 class="text-5xl font-semibold tracking-tight">
               Model 3 Specs
             </h2>
             <p class="mt-2 text-gray-300">Rear-Wheel Drive</p>
@@ -437,8 +419,9 @@
         </div>
       </section>
 
+      <!-- Final call to action: links back to the model choices. -->
       <section class="bg-[#f4f4f4] px-5 py-20 text-center">
-        <h2 class="text-4xl font-semibold md:text-5xl">Model 3</h2>
+        <h2 class="text-5xl font-semibold">Model 3</h2>
         <a
           class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-[#3e6ae1] px-12 text-sm font-semibold text-white hover:bg-[#345ac2]"
           href="#trims"
@@ -447,12 +430,13 @@
       </section>
     </main>
 
+    <!-- Footer: attribution and page links. -->
     <footer class="px-5 py-9 text-center text-xs text-gray-600">
       <p>
         Classroom recreation for learning HTML, Tailwind CSS and JavaScript.
         Tesla imagery belongs to Tesla.
       </p>
-      <div class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <div class="mt-4 flex justify-center gap-x-6">
         <a class="focus-ring hover:underline" href="#top"
           >Back to Top</a
         ><a

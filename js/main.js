@@ -1,4 +1,5 @@
-// Small data sets keep the HTML easy to read and make the JavaScript lesson clear.
+// --- Data ---
+// Page content lives here so the HTML only needs placeholders for changing text/images.
 const heroSlides = [
   {
     title: "Model 3 Premium",
@@ -19,6 +20,7 @@ const heroSlides = [
     alt: "Model 3 driving on a road",
   },
 ];
+
 const features = {
   convenience: {
     title: "Everyday Convenience",
@@ -33,6 +35,7 @@ const features = {
     alt: "Model 3 safety feature illustration",
   },
 };
+
 const trims = {
   standard: {
     title: "Model 3",
@@ -63,8 +66,31 @@ const trims = {
   },
 };
 
+// --- Hero Slides ---
+// Keep the current slide number so the Previous/Next buttons know where to go.
 let heroIndex = 0;
 const heroDots = document.querySelector("#hero-dots");
+
+function showHero(index) {
+  // Modulo wraps past the last slide back to the first (and vice versa).
+  heroIndex = (index + heroSlides.length) % heroSlides.length;
+  const slide = heroSlides[heroIndex];
+  const image = document.querySelector("#hero-image");
+
+  image.src = slide.image;
+  image.alt = slide.alt;
+  document.querySelector("#hero-title").textContent = slide.title;
+  document.querySelector("#hero-subtitle").textContent = slide.subtitle;
+
+  // Highlight the active dot and expose the current slide to screen readers.
+  [...heroDots.children].forEach((dot, dotIndex) => {
+    const isCurrent = dotIndex === heroIndex;
+    dot.classList.toggle("opacity-50", !isCurrent);
+    dot.setAttribute("aria-current", String(isCurrent));
+  });
+}
+
+// Make one dot per slide. Clicking a dot jumps directly to that slide.
 heroSlides.forEach((slide, index) => {
   const button = document.createElement("button");
   button.type = "button";
@@ -73,19 +99,6 @@ heroSlides.forEach((slide, index) => {
   button.addEventListener("click", () => showHero(index));
   heroDots.append(button);
 });
-function showHero(index) {
-  heroIndex = (index + heroSlides.length) % heroSlides.length;
-  const slide = heroSlides[heroIndex];
-  const image = document.querySelector("#hero-image");
-  image.src = slide.image;
-  image.alt = slide.alt;
-  document.querySelector("#hero-title").textContent = slide.title;
-  document.querySelector("#hero-subtitle").textContent = slide.subtitle;
-  [...heroDots.children].forEach((dot, dotIndex) => {
-    dot.classList.toggle("opacity-50", dotIndex !== heroIndex);
-    dot.setAttribute("aria-current", String(dotIndex === heroIndex));
-  });
-}
 document
   .querySelector("#hero-prev")
   .addEventListener("click", () => showHero(heroIndex - 1));
@@ -94,6 +107,8 @@ document
   .addEventListener("click", () => showHero(heroIndex + 1));
 showHero(0);
 
+// --- Tabs ---
+// Both tab groups use the same selected styles and accessibility attribute.
 function selectTab(buttons, selectedButton) {
   buttons.forEach((button) => {
     const selected = button === selectedButton;
@@ -104,42 +119,36 @@ function selectTab(buttons, selectedButton) {
     button.classList.toggle("border-gray-300", !selected);
   });
 }
+
+// Feature tabs: data-feature on each button points to an entry in `features`.
 const featureButtons = [...document.querySelectorAll(".feature-tab")];
-featureButtons.forEach((button) =>
+featureButtons.forEach((button) => {
   button.addEventListener("click", () => {
     selectTab(featureButtons, button);
     const feature = features[button.dataset.feature];
-    document.querySelector("#feature-image").src = feature.image;
-    document.querySelector("#feature-image").alt = feature.alt;
+    const image = document.querySelector("#feature-image");
+
+    image.src = feature.image;
+    image.alt = feature.alt;
     document.querySelector("#feature-title").textContent = feature.title;
     document.querySelector("#feature-copy").textContent = feature.copy;
-  }),
-);
+  });
+});
+
+// Trim tabs: each stats pair contains a value and its label.
 const trimButtons = [...document.querySelectorAll(".trim-tab")];
-trimButtons.forEach((button) =>
+trimButtons.forEach((button) => {
   button.addEventListener("click", () => {
     selectTab(trimButtons, button);
     const trim = trims[button.dataset.trim];
+    const image = document.querySelector("#trim-image");
+
     document.querySelector("#trim-title").textContent = trim.title;
     trim.stats.forEach(([value, label], index) => {
       document.querySelector(`#trim-stat-${index + 1}`).textContent = value;
       document.querySelector(`#trim-label-${index + 1}`).textContent = label;
     });
-    document.querySelector("#trim-image").src = trim.image;
-    document.querySelector("#trim-image").alt = `${trim.title} exterior`;
-  }),
-);
-
-const menuButton = document.querySelector("#menu-button");
-const mobileMenu = document.querySelector("#mobile-menu");
-menuButton.addEventListener("click", () => {
-  const open = menuButton.getAttribute("aria-expanded") !== "true";
-  menuButton.setAttribute("aria-expanded", String(open));
-  mobileMenu.classList.toggle("hidden", !open);
+    image.src = trim.image;
+    image.alt = `${trim.title} exterior`;
+  });
 });
-mobileMenu.querySelectorAll("a").forEach((link) =>
-  link.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
-    menuButton.setAttribute("aria-expanded", "false");
-  }),
-);
