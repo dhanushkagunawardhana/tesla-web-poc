@@ -1,136 +1,474 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A classroom recreation of the Tesla Model 3 page using HTML, Tailwind CSS, and JavaScript.">
-  <title>Model 3 | Classroom POC</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Arial, Helvetica, sans-serif; color: #171a20; }
-    .focus-ring:focus-visible { outline: 3px solid #3e6ae1; outline-offset: 3px; }
-    .hero-shade { background: linear-gradient(180deg, rgba(0,0,0,.32), transparent 38%, transparent 72%, rgba(0,0,0,.12)); }
-  </style>
-  <script src="js/main.js" defer></script>
-</head>
-<body class="antialiased">
-  <a href="#main-content" class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:p-3">Skip to main content</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A classroom recreation of the Tesla Model 3 page using HTML, Tailwind CSS, and JavaScript."
+    />
+    <title>Model 3 | Classroom POC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body class="antialiased">
+    <a
+      href="#main-content"
+      class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:p-3"
+      >Skip to main content</a
+    >
 
-  <header class="absolute inset-x-0 top-0 z-30 text-white" id="site-header">
-    <nav class="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-5 md:px-10" aria-label="Main navigation">
-      <a class="focus-ring text-xl font-bold tracking-[.45em]" href="#top" aria-label="Tesla Model 3 home">TESLA</a>
-      <div class="hidden items-center gap-7 text-sm font-semibold lg:flex">
-        <a class="focus-ring hover:underline" href="#meet">Meet Model 3</a>
-        <a class="focus-ring hover:underline" href="#trims">Explore Models</a>
-        <a class="focus-ring hover:underline" href="#features">Features</a>
-        <a class="focus-ring hover:underline" href="#charging">Charging</a>
-        <a class="focus-ring hover:underline" href="#specs">Specs</a>
-      </div>
-      <button id="menu-button" class="focus-ring rounded bg-white/90 px-4 py-2 text-sm font-semibold text-[#171a20] lg:hidden" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <a class="focus-ring hidden text-sm font-semibold hover:underline lg:block" href="https://www.tesla.com/support">Support</a>
-    </nav>
-    <div id="mobile-menu" class="hidden bg-white px-5 py-5 text-[#171a20] shadow-lg lg:hidden">
-      <div class="flex flex-col gap-4 font-semibold">
-        <a class="focus-ring" href="#meet">Meet Model 3</a><a class="focus-ring" href="#trims">Explore Models</a><a class="focus-ring" href="#features">Features</a><a class="focus-ring" href="#charging">Charging</a><a class="focus-ring" href="#specs">Specs</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section id="top" class="relative h-[680px] min-h-[560px] overflow-hidden md:h-screen" aria-label="Model 3 hero">
-      <img id="hero-image" src="assets/images/hero-premium.avif" alt="Silver Model 3 Premium driving on a road" class="absolute inset-0 h-full w-full object-cover object-center">
-      <div class="hero-shade absolute inset-0"></div>
-      <div class="relative z-10 flex h-full flex-col items-center justify-between px-5 pb-8 pt-24 text-center text-white md:pt-20">
-        <div>
-          <h1 id="hero-title" class="text-4xl font-semibold tracking-tight md:text-6xl">Model 3 Premium</h1>
-          <p id="hero-subtitle" class="mt-3 text-lg md:text-xl">Sport Sedan</p>
-          <div class="mt-7 flex w-full max-w-md flex-col gap-3 sm:flex-row">
-            <a id="hero-order" class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded bg-[#3e6ae1] px-6 text-sm font-semibold hover:bg-[#345ac2]" href="https://www.tesla.com/model3/design">Order Now</a>
-            <a class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded bg-white px-6 text-sm font-semibold text-[#171a20] hover:bg-gray-100" href="https://www.tesla.com/compare">Compare Models</a>
-          </div>
+    <header class="absolute inset-x-0 top-0 z-30 text-white" id="site-header">
+      <nav
+        class="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-5 md:px-10"
+        aria-label="Main navigation"
+      >
+        <a
+          class="focus-ring text-xl font-bold tracking-[.45em]"
+          href="#top"
+          aria-label="Tesla Model 3 home"
+          >TESLA</a
+        >
+        <div class="hidden items-center gap-7 text-sm font-semibold lg:flex">
+          <a class="focus-ring hover:underline" href="#meet">Meet Model 3</a>
+          <a class="focus-ring hover:underline" href="#trims">Explore Models</a>
+          <a class="focus-ring hover:underline" href="#features">Features</a>
+          <a class="focus-ring hover:underline" href="#charging">Charging</a>
+          <a class="focus-ring hover:underline" href="#specs">Specs</a>
         </div>
-        <div class="flex w-full items-center justify-between md:px-7">
-          <button id="hero-prev" class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow" aria-label="Previous vehicle">‹</button>
-          <div id="hero-dots" class="flex gap-3" role="group" aria-label="Choose hero slide"></div>
-          <button id="hero-next" class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow" aria-label="Next vehicle">›</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="meet" class="px-5 py-20 md:py-28">
-      <div class="mx-auto max-w-6xl text-center">
-        <h2 class="text-4xl font-semibold tracking-tight md:text-5xl">Meet Model 3</h2>
-        <p class="mt-4 text-xl font-medium">Sport Sedan</p>
-        <p class="mt-3 text-gray-600">Explore the features that are available with every Model 3.</p>
-        <div class="mt-10 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Model 3 features">
-          <button class="feature-tab focus-ring rounded border border-[#171a20] bg-[#171a20] px-5 py-2 text-sm font-semibold text-white" role="tab" aria-selected="true" data-feature="convenience">Convenience</button>
-          <button class="feature-tab focus-ring rounded border border-gray-300 px-5 py-2 text-sm font-semibold" role="tab" aria-selected="false" data-feature="safety">Safety</button>
-        </div>
-        <div id="feature-panel" role="tabpanel" class="mt-8 overflow-hidden rounded-lg bg-[#f4f4f4] text-left md:grid md:grid-cols-2">
-          <img id="feature-image" src="assets/images/meet-convenience.avif" alt="Model 3 feature illustration" class="h-72 w-full object-cover md:h-[440px]">
-          <div class="flex flex-col justify-center p-8 md:p-14">
-            <h3 id="feature-title" class="text-3xl font-semibold">Everyday Convenience</h3>
-            <p id="feature-copy" class="mt-5 leading-7 text-gray-600">A minimalist cabin and easy-to-use controls help make every drive feel effortless.</p>
-            <a id="feature-link" class="focus-ring mt-7 w-fit border-b border-[#171a20] pb-1 text-sm font-semibold" href="#features">Explore Features</a>
-          </div>
+        <button
+          id="menu-button"
+          class="focus-ring rounded bg-white/90 px-4 py-2 text-sm font-semibold text-[#171a20] lg:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          Menu
+        </button>
+        <a
+          class="focus-ring hidden text-sm font-semibold hover:underline lg:block"
+          href="https://www.tesla.com/support"
+          >Support</a
+        >
+      </nav>
+      <div
+        id="mobile-menu"
+        class="hidden bg-white px-5 py-5 text-[#171a20] shadow-lg lg:hidden"
+      >
+        <div class="flex flex-col gap-4 font-semibold">
+          <a class="focus-ring" href="#meet">Meet Model 3</a
+          ><a class="focus-ring" href="#trims">Explore Models</a
+          ><a class="focus-ring" href="#features">Features</a
+          ><a class="focus-ring" href="#charging">Charging</a
+          ><a class="focus-ring" href="#specs">Specs</a>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section id="trims" class="bg-[#f4f4f4] px-5 py-20 md:py-28">
-      <div class="mx-auto max-w-6xl">
-        <h2 class="text-center text-4xl font-semibold tracking-tight md:text-5xl">Explore Model 3</h2>
-        <div class="mt-9 flex justify-center gap-2" role="tablist" aria-label="Model 3 trims">
-          <button class="trim-tab focus-ring rounded border border-[#171a20] bg-[#171a20] px-5 py-2 text-sm font-semibold text-white" role="tab" aria-selected="true" data-trim="standard">Model 3</button>
-          <button class="trim-tab focus-ring rounded border border-gray-300 px-5 py-2 text-sm font-semibold" role="tab" aria-selected="false" data-trim="premium">Premium</button>
-          <button class="trim-tab focus-ring rounded border border-gray-300 px-5 py-2 text-sm font-semibold" role="tab" aria-selected="false" data-trim="performance">Performance</button>
-        </div>
-        <div class="mt-8 overflow-hidden rounded-lg bg-white md:grid md:grid-cols-[1.3fr_1fr]" role="tabpanel" id="trim-panel">
-          <img id="trim-image" src="assets/images/trim-model-3.avif" alt="Model 3 exterior" class="h-72 w-full object-cover md:h-[460px]">
-          <div class="flex flex-col justify-center p-8 md:p-12">
-            <h3 id="trim-title" class="text-3xl font-semibold">Model 3</h3>
-            <div class="mt-8 grid grid-cols-3 gap-3 border-y border-gray-200 py-6 text-center">
-              <div><strong id="trim-stat-1" class="block text-2xl">321 mi</strong><span id="trim-label-1" class="text-xs text-gray-600">Range (EPA est.)</span></div>
-              <div><strong id="trim-stat-2" class="block text-2xl">5.8 s</strong><span id="trim-label-2" class="text-xs text-gray-600">0–60 mph</span></div>
-              <div><strong id="trim-stat-3" class="block text-2xl">24 cu ft</strong><span id="trim-label-3" class="text-xs text-gray-600">Cargo Space</span></div>
+    <main id="main-content">
+      <section
+        id="top"
+        class="relative h-[680px] min-h-[560px] overflow-hidden md:h-screen"
+        aria-label="Model 3 hero"
+      >
+        <img
+          id="hero-image"
+          src="assets/images/hero-premium.avif"
+          alt="Silver Model 3 Premium driving on a road"
+          class="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div class="hero-shade absolute inset-0"></div>
+        <div
+          class="relative z-10 flex h-full flex-col items-center justify-between px-5 pb-8 pt-24 text-center text-white md:pt-20"
+        >
+          <div>
+            <h1
+              id="hero-title"
+              class="text-4xl font-semibold tracking-tight md:text-6xl"
+            >
+              Model 3 Premium
+            </h1>
+            <p id="hero-subtitle" class="mt-3 text-lg md:text-xl">
+              Sport Sedan
+            </p>
+            <div class="mt-7 flex w-full max-w-md flex-col gap-3 sm:flex-row">
+              <a
+                id="hero-order"
+                class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded bg-[#3e6ae1] px-6 text-sm font-semibold hover:bg-[#345ac2]"
+                href="https://www.tesla.com/model3/design"
+                >Order Now</a
+              >
+              <a
+                class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded bg-white px-6 text-sm font-semibold text-[#171a20] hover:bg-gray-100"
+                href="https://www.tesla.com/compare"
+                >Compare Models</a
+              >
             </div>
-            <a class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-[#3e6ae1] px-6 text-sm font-semibold text-white hover:bg-[#345ac2]" href="https://www.tesla.com/model3/design">Design Yours</a>
+          </div>
+          <div class="flex w-full items-center justify-between md:px-7">
+            <button
+              id="hero-prev"
+              class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow"
+              aria-label="Previous vehicle"
+            >
+              ‹
+            </button>
+            <div
+              id="hero-dots"
+              class="flex gap-3"
+              role="group"
+              aria-label="Choose hero slide"
+            ></div>
+            <button
+              id="hero-next"
+              class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow"
+              aria-label="Next vehicle"
+            >
+              ›
+            </button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="features" class="px-5 py-20 md:py-28">
-      <div class="mx-auto max-w-6xl">
-        <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-          <div><p class="text-sm font-semibold uppercase tracking-widest text-gray-500">Interior</p><h2 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">More Than the Basics</h2><p class="mt-6 leading-7 text-gray-600">A clean and precise interior provides everything you need inside your cabin.</p><div class="mt-9 border-l-4 border-[#3e6ae1] pl-5"><h3 class="text-xl font-semibold">Ride With Comfort</h3><p class="mt-2 text-gray-600">Get first-row heated textile seats plus a heated steering wheel. Finished with premium materials throughout the cabin.</p></div></div>
-          <img src="assets/images/meet-convenience.avif" alt="Model 3 cabin feature illustration" class="h-80 w-full rounded-lg bg-[#f4f4f4] object-cover md:h-[460px]" loading="lazy">
+      <section id="meet" class="px-5 py-20 md:py-28">
+        <div class="mx-auto max-w-6xl text-center">
+          <h2 class="text-4xl font-semibold tracking-tight md:text-5xl">
+            Meet Model 3
+          </h2>
+          <p class="mt-4 text-xl font-medium">Sport Sedan</p>
+          <p class="mt-3 text-gray-600">
+            Explore the features that are available with every Model 3.
+          </p>
+          <div
+            class="mt-10 flex flex-wrap justify-center gap-2"
+            role="tablist"
+            aria-label="Model 3 features"
+          >
+            <button
+              class="feature-tab focus-ring rounded border border-[#171a20] bg-[#171a20] px-5 py-2 text-sm font-semibold text-white"
+              role="tab"
+              aria-selected="true"
+              data-feature="convenience"
+            >
+              Convenience
+            </button>
+            <button
+              class="feature-tab focus-ring rounded border border-gray-300 px-5 py-2 text-sm font-semibold"
+              role="tab"
+              aria-selected="false"
+              data-feature="safety"
+            >
+              Safety
+            </button>
+          </div>
+          <div
+            id="feature-panel"
+            role="tabpanel"
+            class="mt-8 overflow-hidden rounded-lg bg-[#f4f4f4] text-left md:grid md:grid-cols-2"
+          >
+            <img
+              id="feature-image"
+              src="assets/images/meet-convenience.avif"
+              alt="Model 3 feature illustration"
+              class="h-72 w-full object-cover md:h-[440px]"
+            />
+            <div class="flex flex-col justify-center p-8 md:p-14">
+              <h3 id="feature-title" class="text-3xl font-semibold">
+                Everyday Convenience
+              </h3>
+              <p id="feature-copy" class="mt-5 leading-7 text-gray-600">
+                A minimalist cabin and easy-to-use controls help make every
+                drive feel effortless.
+              </p>
+              <a
+                id="feature-link"
+                class="focus-ring mt-7 w-fit border-b border-[#171a20] pb-1 text-sm font-semibold"
+                href="#features"
+                >Explore Features</a
+              >
+            </div>
+          </div>
         </div>
-        <div class="mt-24 grid items-center gap-10 md:grid-cols-2 md:gap-16">
-          <img src="assets/images/meet-safety.avif" alt="Model 3 safety feature illustration" class="h-80 w-full rounded-lg bg-[#f4f4f4] object-cover md:order-1 md:h-[460px]" loading="lazy">
-          <div class="md:order-2"><p class="text-sm font-semibold uppercase tracking-widest text-gray-500">Safety</p><h2 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">Engineered for Your Safety</h2><p class="mt-6 leading-7 text-gray-600">Every vehicle is designed with impact-absorbing zones, a stiff passenger compartment to minimize intrusion and multiple airbags to help protect occupants.</p><p class="mt-4 leading-7 text-gray-600">Active safety features can help reduce impact severity or help prevent accidents altogether.</p><a class="focus-ring mt-7 inline-block border-b border-[#171a20] pb-1 text-sm font-semibold" href="https://www.tesla.com/safety">Learn More</a></div>
+      </section>
+
+      <section id="trims" class="bg-[#f4f4f4] px-5 py-20 md:py-28">
+        <div class="mx-auto max-w-6xl">
+          <h2
+            class="text-center text-4xl font-semibold tracking-tight md:text-5xl"
+          >
+            Explore Model 3
+          </h2>
+          <div
+            class="mt-9 flex justify-center gap-2"
+            role="tablist"
+            aria-label="Model 3 trims"
+          >
+            <button
+              class="trim-tab focus-ring rounded border border-[#171a20] bg-[#171a20] px-5 py-2 text-sm font-semibold text-white"
+              role="tab"
+              aria-selected="true"
+              data-trim="standard"
+            >
+              Model 3
+            </button>
+            <button
+              class="trim-tab focus-ring rounded border border-gray-300 px-5 py-2 text-sm font-semibold"
+              role="tab"
+              aria-selected="false"
+              data-trim="premium"
+            >
+              Premium
+            </button>
+            <button
+              class="trim-tab focus-ring rounded border border-gray-300 px-5 py-2 text-sm font-semibold"
+              role="tab"
+              aria-selected="false"
+              data-trim="performance"
+            >
+              Performance
+            </button>
+          </div>
+          <div
+            class="mt-8 overflow-hidden rounded-lg bg-white md:grid md:grid-cols-[1.3fr_1fr]"
+            role="tabpanel"
+            id="trim-panel"
+          >
+            <img
+              id="trim-image"
+              src="assets/images/trim-model-3.avif"
+              alt="Model 3 exterior"
+              class="h-72 w-full object-cover md:h-[460px]"
+            />
+            <div class="flex flex-col justify-center p-8 md:p-12">
+              <h3 id="trim-title" class="text-3xl font-semibold">Model 3</h3>
+              <div
+                class="mt-8 grid grid-cols-3 gap-3 border-y border-gray-200 py-6 text-center"
+              >
+                <div>
+                  <strong id="trim-stat-1" class="block text-2xl">321 mi</strong
+                  ><span id="trim-label-1" class="text-xs text-gray-600"
+                    >Range (EPA est.)</span
+                  >
+                </div>
+                <div>
+                  <strong id="trim-stat-2" class="block text-2xl">5.8 s</strong
+                  ><span id="trim-label-2" class="text-xs text-gray-600"
+                    >0–60 mph</span
+                  >
+                </div>
+                <div>
+                  <strong id="trim-stat-3" class="block text-2xl"
+                    >24 cu ft</strong
+                  ><span id="trim-label-3" class="text-xs text-gray-600"
+                    >Cargo Space</span
+                  >
+                </div>
+              </div>
+              <a
+                class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-[#3e6ae1] px-6 text-sm font-semibold text-white hover:bg-[#345ac2]"
+                href="https://www.tesla.com/model3/design"
+                >Design Yours</a
+              >
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section id="features" class="px-5 py-20 md:py-28">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <div>
+              <p
+                class="text-sm font-semibold uppercase tracking-widest text-gray-500"
+              >
+                Interior
+              </p>
+              <h2
+                class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl"
+              >
+                More Than the Basics
+              </h2>
+              <p class="mt-6 leading-7 text-gray-600">
+                A clean and precise interior provides everything you need inside
+                your cabin.
+              </p>
+              <div class="mt-9 border-l-4 border-[#3e6ae1] pl-5">
+                <h3 class="text-xl font-semibold">Ride With Comfort</h3>
+                <p class="mt-2 text-gray-600">
+                  Get first-row heated textile seats plus a heated steering
+                  wheel. Finished with premium materials throughout the cabin.
+                </p>
+              </div>
+            </div>
+            <img
+              src="assets/images/meet-convenience.avif"
+              alt="Model 3 cabin feature illustration"
+              class="h-80 w-full rounded-lg bg-[#f4f4f4] object-cover md:h-[460px]"
+              loading="lazy"
+            />
+          </div>
+          <div class="mt-24 grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <img
+              src="assets/images/meet-safety.avif"
+              alt="Model 3 safety feature illustration"
+              class="h-80 w-full rounded-lg bg-[#f4f4f4] object-cover md:order-1 md:h-[460px]"
+              loading="lazy"
+            />
+            <div class="md:order-2">
+              <p
+                class="text-sm font-semibold uppercase tracking-widest text-gray-500"
+              >
+                Safety
+              </p>
+              <h2
+                class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl"
+              >
+                Engineered for Your Safety
+              </h2>
+              <p class="mt-6 leading-7 text-gray-600">
+                Every vehicle is designed with impact-absorbing zones, a stiff
+                passenger compartment to minimize intrusion and multiple airbags
+                to help protect occupants.
+              </p>
+              <p class="mt-4 leading-7 text-gray-600">
+                Active safety features can help reduce impact severity or help
+                prevent accidents altogether.
+              </p>
+              <a
+                class="focus-ring mt-7 inline-block border-b border-[#171a20] pb-1 text-sm font-semibold"
+                href="https://www.tesla.com/safety"
+                >Learn More</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="charging"
+        class="bg-[#171a20] px-5 py-20 text-white md:py-28"
+      >
+        <div
+          class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center"
+        >
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-widest text-gray-300"
+            >
+              Charging
+            </p>
+            <h2 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+              Built for Distance
+            </h2>
+            <p class="mt-6 max-w-lg leading-7 text-gray-300">
+              Go farther with convenient charging on the road. Model 3 can add
+              up to 170 miles of range in 15 minutes at a Supercharger.
+            </p>
+            <a
+              class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-white px-7 text-sm font-semibold text-[#171a20] hover:bg-gray-100"
+              href="https://www.tesla.com/charging"
+              >Explore Charging</a
+            >
+          </div>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="rounded-lg bg-white/10 p-8">
+              <strong class="block text-4xl md:text-5xl">321</strong
+              ><span class="mt-2 block text-sm text-gray-300"
+                >mi range (EPA est.)</span
+              >
+            </div>
+            <div class="rounded-lg bg-white/10 p-8">
+              <strong class="block text-4xl md:text-5xl">170</strong
+              ><span class="mt-2 block text-sm text-gray-300"
+                >miles added in 15 minutes</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="specs" class="bg-[#171a20] px-5 py-20 text-white md:py-28">
+        <div
+          class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center md:gap-16"
+        >
+          <img
+            src="assets/images/specs-model-3.avif"
+            alt="Model 3 specifications illustration"
+            class="w-full rounded-lg bg-[#171a20]"
+            loading="lazy"
+          />
+          <div>
+            <h2 class="text-4xl font-semibold tracking-tight md:text-5xl">
+              Model 3 Specs
+            </h2>
+            <p class="mt-2 text-gray-300">Rear-Wheel Drive</p>
+            <dl class="mt-8 grid grid-cols-2 gap-x-8 gap-y-6 text-sm">
+              <div class="border-t border-gray-600 pt-3">
+                <dt class="font-semibold">Range (EPA est.)</dt>
+                <dd class="mt-2 text-gray-300">321 mi</dd>
+              </div>
+              <div class="border-t border-gray-600 pt-3">
+                <dt class="font-semibold">Acceleration</dt>
+                <dd class="mt-2 text-gray-300">5.8 s 0–60 mph</dd>
+              </div>
+              <div class="border-t border-gray-600 pt-3">
+                <dt class="font-semibold">Drive</dt>
+                <dd class="mt-2 text-gray-300">Rear-Wheel Drive</dd>
+              </div>
+              <div class="border-t border-gray-600 pt-3">
+                <dt class="font-semibold">Cargo</dt>
+                <dd class="mt-2 text-gray-300">24 cu ft</dd>
+              </div>
+              <div class="border-t border-gray-600 pt-3">
+                <dt class="font-semibold">Seating</dt>
+                <dd class="mt-2 text-gray-300">5 seats</dd>
+              </div>
+              <div class="border-t border-gray-600 pt-3">
+                <dt class="font-semibold">Supercharging Max</dt>
+                <dd class="mt-2 text-gray-300">225 kW Max</dd>
+              </div>
+            </dl>
+            <a
+              class="focus-ring mt-8 inline-block border-b border-white pb-1 text-sm font-semibold"
+              href="https://www.tesla.com/compare"
+              >Compare Models</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#f4f4f4] px-5 py-20 text-center">
+        <h2 class="text-4xl font-semibold md:text-5xl">Model 3</h2>
+        <a
+          class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-[#3e6ae1] px-12 text-sm font-semibold text-white hover:bg-[#345ac2]"
+          href="https://www.tesla.com/model3/design"
+          >Design Yours</a
+        >
+      </section>
+    </main>
+
+    <footer class="px-5 py-9 text-center text-xs text-gray-600">
+      <p>
+        Classroom recreation for learning HTML, Tailwind CSS and JavaScript.
+        Tesla imagery belongs to Tesla.
+      </p>
+      <div class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a class="focus-ring hover:underline" href="https://www.tesla.com/about"
+          >Tesla © 2026</a
+        ><a
+          class="focus-ring hover:underline"
+          href="https://www.tesla.com/legal"
+          >Privacy &amp; Legal</a
+        ><a
+          class="focus-ring hover:underline"
+          href="https://www.tesla.com/contact"
+          >Contact</a
+        ><a
+          class="focus-ring hover:underline"
+          href="https://www.tesla.com/findus/list"
+          >Locations</a
+        >
       </div>
-    </section>
-
-    <section id="charging" class="bg-[#171a20] px-5 py-20 text-white md:py-28">
-      <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
-        <div><p class="text-sm font-semibold uppercase tracking-widest text-gray-300">Charging</p><h2 class="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">Built for Distance</h2><p class="mt-6 max-w-lg leading-7 text-gray-300">Go farther with convenient charging on the road. Model 3 can add up to 170 miles of range in 15 minutes at a Supercharger.</p><a class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-white px-7 text-sm font-semibold text-[#171a20] hover:bg-gray-100" href="https://www.tesla.com/charging">Explore Charging</a></div>
-        <div class="grid grid-cols-2 gap-4 text-center"><div class="rounded-lg bg-white/10 p-8"><strong class="block text-4xl md:text-5xl">321</strong><span class="mt-2 block text-sm text-gray-300">mi range (EPA est.)</span></div><div class="rounded-lg bg-white/10 p-8"><strong class="block text-4xl md:text-5xl">170</strong><span class="mt-2 block text-sm text-gray-300">miles added in 15 minutes</span></div></div>
-      </div>
-    </section>
-
-    <section id="specs" class="px-5 py-20 md:py-28">
-      <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center md:gap-16">
-        <img src="assets/images/specs-model-3.avif" alt="Model 3 specifications illustration" class="w-full rounded-lg bg-[#f4f4f4]" loading="lazy">
-        <div><h2 class="text-4xl font-semibold tracking-tight md:text-5xl">Model 3 Specs</h2><p class="mt-2 text-gray-600">Rear-Wheel Drive</p><dl class="mt-8 grid grid-cols-2 gap-x-8 gap-y-6 text-sm"><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Range (EPA est.)</dt><dd class="mt-2 text-gray-600">321 mi</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Acceleration</dt><dd class="mt-2 text-gray-600">5.8 s 0–60 mph</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Drive</dt><dd class="mt-2 text-gray-600">Rear-Wheel Drive</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Cargo</dt><dd class="mt-2 text-gray-600">24 cu ft</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Seating</dt><dd class="mt-2 text-gray-600">5 seats</dd></div><div class="border-t border-gray-300 pt-3"><dt class="font-semibold">Supercharging Max</dt><dd class="mt-2 text-gray-600">225 kW Max</dd></div></dl><a class="focus-ring mt-8 inline-block border-b border-[#171a20] pb-1 text-sm font-semibold" href="https://www.tesla.com/compare">Compare Models</a></div>
-      </div>
-    </section>
-
-    <section class="bg-[#f4f4f4] px-5 py-20 text-center"><h2 class="text-4xl font-semibold md:text-5xl">Model 3</h2><a class="focus-ring mt-8 inline-flex min-h-10 items-center justify-center rounded bg-[#3e6ae1] px-12 text-sm font-semibold text-white hover:bg-[#345ac2]" href="https://www.tesla.com/model3/design">Design Yours</a></section>
-  </main>
-
-  <footer class="px-5 py-9 text-center text-xs text-gray-600"><p>Classroom recreation for learning HTML, Tailwind CSS and JavaScript. Tesla imagery belongs to Tesla.</p><div class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2"><a class="focus-ring hover:underline" href="https://www.tesla.com/about">Tesla © 2026</a><a class="focus-ring hover:underline" href="https://www.tesla.com/legal">Privacy &amp; Legal</a><a class="focus-ring hover:underline" href="https://www.tesla.com/contact">Contact</a><a class="focus-ring hover:underline" href="https://www.tesla.com/findus/list">Locations</a></div></footer>
-</body>
+    </footer>
+  </body>
 </html>

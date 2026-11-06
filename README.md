@@ -9,7 +9,7 @@ Open `index.html` in a modern browser. Internet access is needed for Tailwind's 
 ## Lesson map
 
 1. **HTML:** Identify the `header`, `nav`, `main`, `section`, and `footer` landmarks. Notice headings, links, buttons, image alternative text, and the specs description list.
-2. **Tailwind CSS:** Compare utility classes for spacing, colors, typography, grid, and responsive `md:` and `lg:` layouts. The small inline style block handles smooth scrolling, focus outlines, and the hero gradient.
+2. **Tailwind CSS:** Compare utility classes for spacing, colors, typography, grid, and responsive `md:` and `lg:` layouts. The custom rules in `css/styles.css` handle smooth scrolling, typography, focus outlines, and the hero gradient.
 3. **JavaScript:** Read the slide and tab data objects in `js/main.js`. Follow each click handler as it changes text, images, classes, and ARIA state.
 4. **Practice:** Add one feature tab, adjust a responsive breakpoint, or add keyboard arrow support to the carousels.
 
