@@ -67,14 +67,10 @@ const trims = {
 };
 
 // --- Hero Slides ---
-// Keep the current slide number so the Previous/Next buttons know where to go.
-let heroIndex = 0;
 const heroDots = document.querySelector("#hero-dots");
 
 function showHero(index) {
-  // Modulo wraps past the last slide back to the first (and vice versa).
-  heroIndex = (index + heroSlides.length) % heroSlides.length;
-  const slide = heroSlides[heroIndex];
+  const slide = heroSlides[index];
   const image = document.querySelector("#hero-image");
 
   image.src = slide.image;
@@ -84,7 +80,7 @@ function showHero(index) {
 
   // Highlight the active dot and expose the current slide to screen readers.
   [...heroDots.children].forEach((dot, dotIndex) => {
-    const isCurrent = dotIndex === heroIndex;
+    const isCurrent = dotIndex === index;
     dot.classList.toggle("opacity-50", !isCurrent);
     dot.setAttribute("aria-current", String(isCurrent));
   });
@@ -99,12 +95,6 @@ heroSlides.forEach((slide, index) => {
   button.addEventListener("click", () => showHero(index));
   heroDots.append(button);
 });
-document
-  .querySelector("#hero-prev")
-  .addEventListener("click", () => showHero(heroIndex - 1));
-document
-  .querySelector("#hero-next")
-  .addEventListener("click", () => showHero(heroIndex + 1));
 showHero(0);
 
 // --- Tabs ---

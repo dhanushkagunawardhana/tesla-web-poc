@@ -42,7 +42,7 @@
 
     <!-- Main contains the page's primary content, divided into sections. -->
     <main id="main-content">
-      <!-- Hero: large image, headline, and slide controls. -->
+      <!-- Hero: large image, headline, and clickable slide dots. -->
       <section
         id="top"
         class="relative h-screen min-h-[560px] overflow-hidden"
@@ -82,27 +82,13 @@
               >
             </div>
           </div>
-          <div class="flex w-full items-center justify-between px-7">
-            <button
-              id="hero-prev"
-              class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow"
-              aria-label="Previous vehicle"
-            >
-              ‹
-            </button>
+          <div class="flex justify-center">
             <div
               id="hero-dots"
               class="flex gap-3"
               role="group"
               aria-label="Choose hero slide"
             ></div>
-            <button
-              id="hero-next"
-              class="focus-ring rounded bg-white/90 px-4 py-2 text-2xl text-[#171a20] shadow"
-              aria-label="Next vehicle"
-            >
-              ›
-            </button>
           </div>
         </div>
       </section>
