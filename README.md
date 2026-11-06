@@ -4,6 +4,8 @@ A small, desktop-only, single-page recreation of selected [Tesla Model 3](https:
 
 ## Run
 
+View the [website preview](https://dhanushkagunawardhana.github.io/tesla-web-poc/).
+
 Open `index.html` in a modern browser. Internet access is needed for Tailwind's CDN script; the selected Tesla images are stored locally in `assets/images/`.
 
 ## Lesson map
